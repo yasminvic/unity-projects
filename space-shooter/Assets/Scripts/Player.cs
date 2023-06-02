@@ -30,6 +30,12 @@ public class Player : MonoBehaviour
     private float delayFlash = 0.1f;
 
 
+    [Header("Sound Effects")]
+    [SerializeField]
+    private AudioSource coinCollected;
+
+    private int _score = 0;
+
     void Update()
     {
         //Controlar movimentos
@@ -95,5 +101,17 @@ public class Player : MonoBehaviour
     {
             flashGameObject.SetActive(false);
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Coin"))
+        {
+            //Debug.Log("colidiu");
+            Destroy(collision.gameObject);
+            coinCollected.Play();
+            _score++;
+            Debug.Log(_score);
+        }
     }
 }
