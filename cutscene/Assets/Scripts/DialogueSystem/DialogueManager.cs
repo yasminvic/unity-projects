@@ -79,5 +79,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         dialogueAnimation.SetBool("IsOpen", false);
+
+        FindObjectOfType<LevelLoader>().LoadScene();
     }
 }
