@@ -23,12 +23,12 @@ public class DialogueManager : MonoBehaviour
     public AudioSource typeSentenceAudio;
 
     private Queue<string> sentences;
+
     void Start()
     {
         sentences = new Queue<string>();
         titleText.text = string.Empty;
         dialogueText.text = string.Empty;
-
     }
 
     public void StartDialogue(Dialogue dialogue)
